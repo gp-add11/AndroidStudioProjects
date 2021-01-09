@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 
 /**
@@ -27,5 +29,29 @@ class FirstFragment : Fragment() {
         view.findViewById<Button>(R.id.random_button).setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
+
+        view.findViewById<Button>(R.id.toast_button).setOnClickListener {
+            //create a Toast with some text and show it
+            val myToast = Toast.makeText(context, "Hello Toast!", Toast.LENGTH_LONG)
+            myToast.show()
+        }
+
+        view.findViewById<Button>(R.id.count_button).setOnClickListener {
+            //call a new method countMe() to interact with other views in the layout
+            countMe(view)
+        }
     }
+
+    private fun countMe(view: View) {
+        //Get the text view
+        val showCountTextView = view.findViewById<TextView>(R.id.textview_first)
+        // Get value in text view
+        val countString = showCountTextView.text.toString()
+        //Convert value to number and then increment it
+        var count = countString.toInt()
+        count++
+        // Display new value in TextView
+        showCountTextView.text = count.toString()
+    }
+
 }
