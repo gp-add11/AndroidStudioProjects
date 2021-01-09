@@ -31,8 +31,10 @@ class FirstFragment : Fragment() {
         }
 
         view.findViewById<Button>(R.id.toast_button).setOnClickListener {
+            //Also trying to display the number in text view in toast
+            val countNum = view.findViewById<TextView>(R.id.textview_first).text.toString().toInt()
             //create a Toast with some text and show it
-            val myToast = Toast.makeText(context, "Hello Toast!", Toast.LENGTH_LONG)
+            val myToast = Toast.makeText(context, "Hello Toast! The current number is $countNum", Toast.LENGTH_LONG)
             myToast.show()
         }
 
