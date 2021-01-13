@@ -16,7 +16,7 @@ import androidx.navigation.fragment.navArgs
  */
 class SecondFragment : Fragment() {
 
-   // val args: SecondFragmentArgs by navArgs()
+    val args: SecondFragmentArgs by navArgs()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
