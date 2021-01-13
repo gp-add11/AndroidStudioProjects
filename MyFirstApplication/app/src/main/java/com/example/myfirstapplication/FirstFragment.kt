@@ -31,7 +31,7 @@ class FirstFragment : Fragment() {
             val showCountTextView = view.findViewById<TextView>(R.id.textview_first)
             val currentCount = showCountTextView.text.toString().toInt()
             //Creating an action with current count as arg to actionFirstFragmentToSecondFragment
-            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment()
+            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(currentCount)
             //Navigate with the action created
             findNavController().navigate(action)
 
