@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    //adding this part to apply plugin for safeargs
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -45,3 +47,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
+
+/* Uncommenting this part as this may not be the correct place to add. Trying first in plugins block.
+// added custom code here to enable safeargs
+apply plugin: "androidx.navigation.safeargs"
+ */
