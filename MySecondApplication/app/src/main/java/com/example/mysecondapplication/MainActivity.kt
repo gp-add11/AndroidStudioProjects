@@ -22,9 +22,13 @@ class MainActivity : AppCompatActivity() {
         val displayText = findViewById<TextView>(R.id.text_score)
         editText.inputType = InputType.TYPE_CLASS_NUMBER
 
-        val randomNo: Int = Random.nextInt(0,1000)
-        findViewById<TextView>(R.id.text_number).text = randomNo.toString()
+        var randomNo: Int
 
+        //randomNo = Random.nextInt(0,1000)
+        //findViewById<TextView>(R.id.text_number).text = randomNo.toString()
+
+        randomNo = showRandomNumber()
+        // this block works, commented to unit test
         button.setOnClickListener {
 
             val userNum1 = editText.text.toString().toInt()
@@ -34,10 +38,16 @@ class MainActivity : AppCompatActivity() {
             } else {
                 displayText.setText("Wrong by ${userNum1-randomNo}")
             }
+            randomNo = showRandomNumber()
         }
 
     }
-
+    private fun showRandomNumber(): Int {
+        val num1: Int
+        num1 = Random.nextInt(0,1000)
+        findViewById<TextView>(R.id.text_number).text = num1.toString()
+        return num1
+    }
 
 
 }
