@@ -1,6 +1,7 @@
 package com.example.mysecondapplication
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
@@ -28,6 +29,12 @@ class MainActivity : AppCompatActivity() {
         var wrongScore: Int = 0
         var userHighScore: Int = 0
 
+        // block start to try shared preferences
+        val prefs: SharedPreferences = this.getSharedPreferences("com.example.mysecondapplication",Context.MODE_PRIVATE)
+        val prefsKey: String = "High Score"
+        val previousHighScore: Int = prefs.getInt(prefsKey, 0)
+
+
         randomNo = showRandomNumber()
 
         button.setOnClickListener {
@@ -45,7 +52,11 @@ class MainActivity : AppCompatActivity() {
             randomNo = showRandomNumber()
 
             //adding this part to check if highScore can be saved
-            userHighScore = correctScore
+            if(correctScore > previousHighScore) {
+                userHighScore = correctScore
+                prefs.edit().putInt(prefsKey, userHighScore).apply()
+            }
+
 
         }
     }
