@@ -38,11 +38,12 @@ class MainActivity : AppCompatActivity() {
                 wrongScore++
                 displayText.setText("Wrong $wrongScore times ${userNum1-randomNo} ... vs $correctScore corrects")
             }
+
             editText.text.clear()  //to clear text for next user input, instead of making user to backspace
             randomNo = showRandomNumber()
         }
-
     }
+
     private fun showRandomNumber(): Int {
         val num1: Int
         num1 = Random.nextInt(0,1000)
