@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         val prefs: SharedPreferences = this.getSharedPreferences("com.example.mysecondapplication",Context.MODE_PRIVATE)
         val prefsKey: String = "High Score"
         val previousHighScore: Int = prefs.getInt(prefsKey, 0)
+        highScoreText.setText("User HighScore is $previousHighScore")
 
 
         randomNo = showRandomNumber()
@@ -55,7 +56,10 @@ class MainActivity : AppCompatActivity() {
             if(correctScore > previousHighScore) {
                 userHighScore = correctScore
                 prefs.edit().putInt(prefsKey, userHighScore).apply()
+            } else {
+                userHighScore = previousHighScore
             }
+            highScoreText.setText("User HighScore is $userHighScore")
 
 
         }
