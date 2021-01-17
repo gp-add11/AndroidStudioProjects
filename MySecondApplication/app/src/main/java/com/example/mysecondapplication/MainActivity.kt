@@ -24,13 +24,9 @@ class MainActivity : AppCompatActivity() {
 
         var randomNo: Int
 
-        //randomNo = Random.nextInt(0,1000)
-        //findViewById<TextView>(R.id.text_number).text = randomNo.toString()
-
         randomNo = showRandomNumber()
-        // this block works, commented to unit test
-        button.setOnClickListener {
 
+        button.setOnClickListener {
             val userNum1 = editText.text.toString().toInt()
             //displayText.setText("Hi, number is ${num1*20} !!") //works
             if(randomNo == userNum1) {
@@ -38,6 +34,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 displayText.setText("Wrong by ${userNum1-randomNo}")
             }
+            editText.text.clear()  //to clear text for next user input, instead of making user to backspace
             randomNo = showRandomNumber()
         }
 
