@@ -23,16 +23,20 @@ class MainActivity : AppCompatActivity() {
         editText.inputType = InputType.TYPE_CLASS_NUMBER
 
         var randomNo: Int
+        var correctScore: Int = 0
+        var wrongScore: Int = 0
 
         randomNo = showRandomNumber()
 
         button.setOnClickListener {
             val userNum1 = editText.text.toString().toInt()
-            //displayText.setText("Hi, number is ${num1*20} !!") //works
+
             if(randomNo == userNum1) {
-                displayText.setText("Correct!! Number is ${randomNo*2}/2")
+                correctScore++
+                displayText.setText("Correct $correctScore times!! Number is ${randomNo*2}/2 ... vs $wrongScore mistakes")
             } else {
-                displayText.setText("Wrong by ${userNum1-randomNo}")
+                wrongScore++
+                displayText.setText("Wrong $wrongScore times ${userNum1-randomNo} ... vs $correctScore corrects")
             }
             editText.text.clear()  //to clear text for next user input, instead of making user to backspace
             randomNo = showRandomNumber()
