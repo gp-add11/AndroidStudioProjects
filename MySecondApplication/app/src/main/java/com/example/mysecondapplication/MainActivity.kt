@@ -59,10 +59,10 @@ class MainActivity : AppCompatActivity() {
             } else {
                 userHighScore = previousHighScore
             }
-            highScoreText.setText("User HighScore is $userHighScore")
-
+            highScoreText.setText("User HighScore recorded until last instance is $userHighScore")
 
         }
+
     }
 
     private fun showRandomNumber(): Int {
@@ -71,6 +71,5 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.text_number).text = num1.toString()
         return num1
     }
-
 
 }
